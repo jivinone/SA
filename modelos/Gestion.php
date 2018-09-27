@@ -25,14 +25,14 @@ Class Gestion
 		return ejecutarConsulta($sql);
 	}
 
-	//Implementamos un método para desactivar categorías
+	//Implementamos un método para desactivar gestion
 	public function desactivar($idgestion)
 	{
 		$sql="UPDATE gestion SET condicion='0' WHERE idgestion='$idgestion'";
 		return ejecutarConsulta($sql);
 	}
 
-	//Implementamos un método para activar categorías
+	//Implementamos un método para activar gestion
 	public function activar($idgestion)
 	{
 		$sql="UPDATE gestion SET condicion='1' WHERE idgestion='$idgestion'";
