@@ -2,7 +2,7 @@
 //Incluímos inicialmente la conexión a la base de datos
 require "../config/Conexion.php";
 
-Class Gestion
+Class Catalogo
 {
 	//Implementamos nuestro constructor
 	public function __construct()
@@ -11,45 +11,45 @@ Class Gestion
 	}
 
 	//Implementamos un método para insertar registros
-	public function insertar($nombregestion,$slug)
+	public function insertar($idgestion,$decano,$directoracademico)
 	{
-		$sql="INSERT INTO gestion (nombregestion,slug)
-		VALUES ('$nombregestion','$slug')";
+		$sql="INSERT INTO catalogo (idgestion,decano, directoracademico)
+		VALUES ('$idgestion','$decano','directoracademico')";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementamos un método para editar registros
-	public function editar($idgestion,$nombregestion,$slug)
+	public function editar($idcatalogo,$decano,$directoracademico)
 	{
-		$sql="UPDATE gestion SET nombregestion='$nombregestion',slug='$slug' WHERE idgestion='$idgestion'";
+		$sql="UPDATE catalogo SET decano='$decano',directoracademico='$directoracademico' WHERE idcatalogo='$idcatalogo'";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementamos un método para desactivar gestion
-	public function desactivar($idgestion)
+	public function desactivar($idcatalogo)
 	{
-		$sql="UPDATE gestion SET condicion='0' WHERE idgestion='$idgestion'";
+		$sql="UPDATE catalogo SET condicion='0' WHERE idcatalogo='$idcatalogo'";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementamos un método para activar gestion
-	public function activar($idgestion)
+	public function activar($idcatalogo)
 	{
-		$sql="UPDATE gestion SET condicion='1' WHERE idgestion='$idgestion'";
+		$sql="UPDATE catalogo SET condicion='1' WHERE idcatalogo='$idcatalogo'";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementar un método para mostrar los datos de un registro a modificar
-	public function mostrar($idgestion)
+	public function mostrar($idcatalogo)
 	{
-		$sql="SELECT * FROM gestion WHERE idgestion='$idgestion'";
+		$sql="SELECT * FROM catalogo WHERE idcatalogo='$idcatalogo'";
 		return ejecutarConsultaSimpleFila($sql);
 	}
 
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT * FROM gestion";
+		$sql="SELECT * FROM catalogo";
 		return ejecutarConsulta($sql);		
 	}
 }
